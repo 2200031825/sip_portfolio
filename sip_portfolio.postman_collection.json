@@ -1,0 +1,437 @@
+{
+  "info": {
+    "_postman_id": "c940b7e0-cb0f-4fec-9996-c55755c5403a",
+    "name": "sip_portfolio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39187521",
+    "_collection_link": "https://go.postman.co/collection/39187521-c940b7e0-cb0f-4fec-9996-c55755c5403a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "investor_login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"sivabhai777@gmail.com\",\r\n    \"password\":\"siva@777\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/investor/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "investor", "login"]
+        }
+      },
+      "response": [
+        {
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04"
+        }
+      ]
+    },
+    {
+      "name": "add_investor",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"investor_id\": \"INV008\",\r\n  \"first_name\": \"Nithish\",\r\n  \"last_name\": \"Kumar\",\r\n  \"email\": \"nithish69@gmail.com\",\r\n  \"phone\": \"9999999999\",\r\n  \"pan_number\": \"ABCDE1234X\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/investor/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "investor", "add"]
+        }
+      },
+      "response": [
+        {
+          "message": "Investor added successfully",
+          "investor_id": "INV008"
+        }
+      ]
+    },
+    {
+      "name": "get_investor",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NTQ0NiwiZXhwIjoxNzc4MTU4NDQ2fQ.VHFD8ebDyEMzK2cNrOh8gEO8bgo57VsHh3fXwiL8FJI",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/api/investor/INV002",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "investor", "INV002"]
+        }
+      },
+      "response": [
+        {
+          "investor_id": "INV002",
+          "first_name": "Priya",
+          "last_name": "Reddy",
+          "email": "priya@gmail.com",
+          "phone": "9123456780",
+          "pan_number": "PQRSX5678K",
+          "created_at": "2026-05-07 07:39:50"
+        }
+      ]
+    },
+    {
+      "name": "investor_networth",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"investor_id\": \"INV008\",\r\n  \"first_name\": \"Nithish\",\r\n  \"last_name\": \"Kumar\",\r\n  \"email\": \"nithish69@gmail.com\",\r\n  \"phone\": \"9999999999\",\r\n  \"pan_number\": \"ABCDE1234X\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/investor/INV002/networth",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "investor", "INV002", "networth"]
+        }
+      },
+      "response": [
+        {
+          "investor_id": "INV002",
+          "first_name": "Priya",
+          "net_worth": 3360
+        }
+      ]
+    },
+    {
+      "name": "get_fund",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"fund_id\": \"FND101\",\r\n  \"amc_id\": \"AMC001\",\r\n  \"fund_name\": \"Axis Small Fund\",\r\n  \"scheme_code\": \"SCH100\",\r\n  \"fund_type\": \"Equity\",\r\n  \"category\": \"Small Cap\",\r\n  \"risk_level\": \"High\",\r\n  \"expense_ratio\": 1.45,\r\n  \"current_nav\": 52.75,\r\n  \"launch_date\": \"2026-05-07\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/funds",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "funds"]
+        }
+      },
+      "response": [
+        {
+          "fund_id": "FND101",
+          "amc_id": "AMC001",
+          "fund_name": "Axis Small Fund",
+          "scheme_code": "SCH100",
+          "fund_type": "Equity",
+          "category": "Small Cap",
+          "risk_level": "High",
+          "expense_ratio": 1.45,
+          "current_nav": 52.75,
+          "launch_date": "2026-05-07"
+        }
+      ]
+    },
+    {
+      "name": "update_fund_nav",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"current_nav\" : 58\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/funds/FND001/nav",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "funds", "FND001", "nav"]
+        }
+      },
+      "response": [
+        {
+          "message": "NAV updated successfully"
+        }
+      ]
+    },
+    {
+      "name": "add_fund",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"fund_id\": \"FND101\",\r\n  \"amc_id\": \"AMC001\",\r\n  \"fund_name\": \"Axis Small Fund\",\r\n  \"scheme_code\": \"SCH104\",\r\n  \"fund_type\": \"Equity\",\r\n  \"category\": \"Small Cap\",\r\n  \"risk_level\": \"High\",\r\n  \"expense_ratio\": 1.45,\r\n  \"current_nav\": 52.75,\r\n  \"launch_date\": \"2026-05-07\"   \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/funds",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "funds"]
+        }
+      },
+      "response": [
+        {
+          "message": "Fund created successfully",
+          "id": "FND101"
+        }
+      ]
+    },
+    {
+      "name": "add_sip",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sip_id\": \"SIP101\",\r\n  \"investor_id\": \"INV002\",\r\n  \"fund_id\": \"FND002\",\r\n  \"portfolio_id\": \"PORT002\",\r\n  \"sip_amount\": 7500,\r\n  \"sip_date\": 10,\r\n  \"start_date\": \"2026-06-01\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/sips",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "sips"]
+        }
+      },
+      "response": [
+        {
+          "message": "SIP created successfully",
+          "id": "SIP101"
+        }
+      ]
+    },
+    {
+      "name": "get_sips",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sip_id\": \"SIP101\",\r\n  \"investor_id\": \"INV002\",\r\n  \"fund_id\": \"FND002\",\r\n  \"portfolio_id\": \"PORT002\",\r\n  \"sip_amount\": 7500,\r\n  \"sip_date\": 10,\r\n  \"start_date\": \"2026-06-01\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/sips/SIP001/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "sips", "SIP001", "transactions"]
+        }
+      },
+      "response": [
+        [
+          {
+            "transaction_id": "TXN002",
+            "sip_id": "SIP001",
+            "investor_id": "INV001",
+            "fund_id": "FND001",
+            "transaction_type": "BUY",
+            "amount": 5000,
+            "nav_used": 52,
+            "units_allocated": 96.1538,
+            "transaction_date": "2026-06-05",
+            "created_at": "2026-05-07 07:40:13"
+          },
+          {
+            "transaction_id": "TXN001",
+            "sip_id": "SIP001",
+            "investor_id": "INV001",
+            "fund_id": "FND001",
+            "transaction_type": "BUY",
+            "amount": 5000,
+            "nav_used": 50,
+            "units_allocated": 100,
+            "transaction_date": "2026-05-05",
+            "created_at": "2026-05-07 07:40:13"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "process_siptransaction",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sip_id\": \"SIP101\",\r\n  \"investor_id\": \"INV002\",\r\n  \"fund_id\": \"FND002\",\r\n  \"portfolio_id\": \"PORT002\",\r\n  \"sip_amount\": 7500,\r\n  \"sip_date\": 10,\r\n  \"start_date\": \"2026-06-01\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/sips/SIP001/transactions",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "sips", "SIP001", "transactions"]
+        }
+      },
+      "response": [
+        [
+          {
+            "transaction_id": "TXN002",
+            "sip_id": "SIP001",
+            "investor_id": "INV001",
+            "fund_id": "FND001",
+            "transaction_type": "BUY",
+            "amount": 5000,
+            "nav_used": 52,
+            "units_allocated": 96.1538,
+            "transaction_date": "2026-06-05",
+            "created_at": "2026-05-07 07:40:13"
+          },
+          {
+            "transaction_id": "TXN1778158377378",
+            "sip_id": "SIP001",
+            "investor_id": "INV001",
+            "fund_id": "FND001",
+            "transaction_type": "BUY",
+            "amount": 5000,
+            "nav_used": 58,
+            "units_allocated": 86.20689655172414,
+            "transaction_date": "2026-05-07",
+            "created_at": "2026-05-07 12:52:57"
+          },
+          {
+            "transaction_id": "TXN001",
+            "sip_id": "SIP001",
+            "investor_id": "INV001",
+            "fund_id": "FND001",
+            "transaction_type": "BUY",
+            "amount": 5000,
+            "nav_used": 50,
+            "units_allocated": 100,
+            "transaction_date": "2026-05-05",
+            "created_at": "2026-05-07 07:40:13"
+          }
+        ]
+      ]
+    },
+    {
+      "name": "sip_process",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNpdmFiaGFpNzc3QGdtYWlsLmNvbSIsInJvbGUiOiJpbnZlc3RvciIsImlhdCI6MTc3ODE1NjkxOSwiZXhwIjoxNzc4MTU5OTE5fQ.EQPupfjMVik5DvdP0sxD2vaayhCc7kGwdLAqxqrDz04",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sip_id\": \"SIP101\",\r\n  \"investor_id\": \"INV002\",\r\n  \"fund_id\": \"FND002\",\r\n  \"portfolio_id\": \"PORT002\",\r\n  \"sip_amount\": 7500,\r\n  \"sip_date\": 10,\r\n  \"start_date\": \"2026-06-01\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/sips/SIP001/process",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "sips", "SIP001", "process"]
+        }
+      },
+      "response": [
+        {
+          "message": "SIP processed successfully",
+          "transaction_id": "TXN1778158377378",
+          "units_allocated": 86.20689655172414
+        }
+      ]
+    }
+  ]
+}
